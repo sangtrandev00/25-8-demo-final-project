@@ -9,7 +9,7 @@ const disbursementApi = {
   },
 
   get(id) {
-    const url = `/disbursement/read.php/${id}`;
+    const url = `/disbursement/read_id.php?id=${id}`;
     return axiosClient.get(url);
   },
 

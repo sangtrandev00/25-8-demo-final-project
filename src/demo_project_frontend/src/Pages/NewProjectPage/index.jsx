@@ -9,15 +9,21 @@ NewProjectPage.propTypes = {};
 
 function NewProjectPage(props) {
   let { id } = useParams();
-  console.log(id);
-  const ProjectUrlParams = useLocation();
-  console.log(ProjectUrlParams);
-  const idProject = ProjectUrlParams.search.substring(6);
-
+  // console.log(id.search);
+  // const ProjectUrlParams = useLocation();
+  // console.log(ProjectUrlParams);
+  // const idProject = ProjectUrlParams.search.substring(6);
+  // console.log(idProject);
   useEffect(() => {
     const getNewProject = async () => {
-      const NewProject = await projectApi.get(idProject);
+      const NewProject = await projectApi.get(id);
       console.log(NewProject);
+      // const NewProject = await fundDonateApi.get(id);
+      // console.log('newDonation 1: ', NewProject.list_donate);
+      // const newDonationObj = newDonation.list_donate[0];
+      // console.log('newDonation 2: ', newDonationObj);
+
+      // console.log(NewProject);
       await demo_project_backend.createFundProject(
         NewProject.ProjectID,
         NewProject.ProjectName,
@@ -26,12 +32,13 @@ function NewProjectPage(props) {
         NewProject.DateEnd,
         Number(NewProject.TargetMoney),
         NewProject.Avatar,
-        'Some where', // Location -- from API
+        // 'Some where', // Location -- from API
+        NewProject.Location,
         NewProject.ShortDesc,
         NewProject.FullDesc
       );
 
-      location.reload('https://fpolytuthien.com/admin/project/index_subadmin.php');
+      window.open('https://fpolytuthien.com/admin/project/index_subadmin.php');
     };
 
     getNewProject();

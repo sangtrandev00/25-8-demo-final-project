@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosClient = axios.create({
   // baseURL là đường dẫn trang web của mình: https://fpolytuthien.xyz/
-  baseURL: 'http://localhost:8082/hocphp/api',
+  baseURL: 'https://fpolytuthien.com/api',
   // baseURL: 'https://fpolytuthien.com/api/'
   headers: {
     'Content-Type': 'application/json',

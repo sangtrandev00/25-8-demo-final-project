@@ -10,7 +10,8 @@ const fundDonateApi = {
   },
 
   get(id) {
-    const url = `/donate/read.php/${id}`;
+    // https://fpolytuthien.com/api/donate/read_id.php/?id=6
+    const url = `/donate/read_id.php/?id=${id}`;
     return axiosClient.get(url);
   },
 

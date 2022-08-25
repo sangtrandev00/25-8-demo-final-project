@@ -2,8 +2,9 @@
 import axiosClient from './axiosClient';
 
 const projectApi = {
+  //
   getAll(params) {
-    const url = '/project/read_all.php';
+    const url = '/project/read_id.php';
     return axiosClient.get(url, {
       params: params,
     });

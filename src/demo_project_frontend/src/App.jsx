@@ -38,6 +38,8 @@ import CovidProjectPage from './Pages/FundProgramsPage/components/CovidProjectPa
 import PoorProjectPage from './Pages/FundProgramsPage/components/PoorProjectPage/index';
 import HomeLessProjectPage from './Pages/FundProgramsPage/components/HomeLessProjectPage/index';
 import EducationProjectPage from './Pages/FundProgramsPage/components/EducationProjectPage/index';
+import NewProjectPage from './Pages/NewProjectPage/index';
+import NewDisbursementPage from './Pages/NewDisbursementPage/index';
 
 // import "./assets/css/style.css";
 // import "./assets/css/style.css";
@@ -79,6 +81,9 @@ function App() {
           <Route path="/introduction-page" component={IntroPage} />
           <Route path="/programs-fund-page" component={ProgramsfundPage} />
           <Route path="/covid-project-fund" component={CovidProjectPage} />
+          <Route path="/new-project-page" component={NewProjectPage} exact={false} />
+          <Route path="/new-donation-page" component={NewDonationPage} exact={false} />
+          <Route path="/new-disbursement-page" component={NewDisbursementPage} exact={false} />
           <Route path="/education-project-fund" component={EducationProjectPage} />
           <Route path="/homeless-project-fund" component={HomeLessProjectPage} />
           <Route path="/poor-project-fund" component={PoorProjectPage} />

@@ -30,6 +30,8 @@ function NewDisbursementPage(props) {
         NewDisbursement.Reason,
         12000000 // DisbursementMoney
       );
+
+      window.open('https://fpolytuthien.com/admin/project/index_subadmin.php');
     };
 
     getNewDisbursement();

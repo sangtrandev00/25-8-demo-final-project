@@ -50,7 +50,6 @@ actor {
     UserConfirm: Text;
     Reason: Text;
     DisbursementMoney: Float;
-    NumberDisbursement: [Text];
   };
 
 
@@ -89,7 +88,7 @@ actor {
 
   // Create Fund Project
   // createDisbursement
-   public func createDisbursement(DisbursementID_: Nat, ProjectID_ : Text,TypeProject_ : Text, UserRequest_ : Text, DateRequest_: Text, DateConfirm_:Text, UserConfirm_: Text,Reason_: Text,DisbursementMoney_: Float, NumberDisbursement_: [Text] ) : async Bool {
+   public func createDisbursement(DisbursementID_: Nat, ProjectID_ : Text,TypeProject_ : Text, UserRequest_ : Text, DateRequest_: Text, DateConfirm_:Text, UserConfirm_: Text,Reason_: Text,DisbursementMoney_: Float) : async Bool {
 
     let currentDisbursement: Disbursement = {
           DisbursementID=  DisbursementID_;
@@ -101,7 +100,7 @@ actor {
           UserConfirm =  UserConfirm_;
           Reason =  Reason_;
           DisbursementMoney =  DisbursementMoney_;
-          NumberDisbursement =  NumberDisbursement_;
+          // NumberDisbursement =  NumberDisbursement_;
     };
 
     DisbursementMaps.put(DisbursementID_, ?currentDisbursement);
@@ -260,5 +259,6 @@ actor {
     DisbursementMaps := HashMap.fromIter<Nat, ?Disbursement>(disbursementEntries.vals(), 0, Nat.equal, Hash.hash);
   };
 
+  Debug.print("hello");
 
 };

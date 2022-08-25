@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Logo_1 from '../../../assets/img/logo-1.png';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NewDonationPage from '../../Pages/NewDonationPage/index';
+import NewProjectPage from '../../Pages/NewProjectPage/index';
+import NewDisbursementPage from '../../Pages/NewDisbursementPage/index';
 
 Header.propTypes = {};
 
@@ -47,21 +50,32 @@ function Header(props) {
                 Đóng Góp
               </NavLink> */}
             </li>
-            <li class="content-nav__title-link">
-              <NavLink to="/new-donation-page?id=123">Giao dịch mới</NavLink>
+            <Router>
+              <li class="content-nav__title-link">
+                <NavLink to="/new-donation-page">Giao dịch mới</NavLink>
 
-              <ul class="content-nav__submenu">
-                <li class="content-nav__submenu-link">
-                  <NavLink to="/new-project-page">Tạo dự án mới</NavLink>
-                </li>
-                <li class="content-nav__submenu-link">
-                  <NavLink to="/new-donation-page">Tạo đóng góp mới</NavLink>
-                </li>
-                <li class="content-nav__submenu-link">
-                  <NavLink to="/new-disbursement-page">Tạo giải ngân mới</NavLink>
-                </li>
-              </ul>
-            </li>
+                <ul class="content-nav__submenu">
+                  <li class="content-nav__submenu-link">
+                    <NavLink to="/new-project-page">Tạo dự án mới</NavLink>
+                  </li>
+                  <li class="content-nav__submenu-link">
+                    <NavLink to="/new-donation-page">Tạo đóng góp mới</NavLink>
+                  </li>
+                  <li class="content-nav__submenu-link">
+                    <NavLink to="/new-disbursement-page">Tạo giải ngân mới</NavLink>
+                  </li>
+                </ul>
+              </li>
+              <Switch>
+                {/* <Route path="/:id" children={<NewProjectPage />} exact={false} /> */}
+                <Route path="/:id" children={<NewDonationPage />} exact={false} />
+                {/* <Route
+                  path="/new-disbursement-page/:id"
+                  children={<NewDisbursementPage />}
+                  exact={false}
+                /> */}
+              </Switch>
+            </Router>
             <li class="content-nav__title-link">
               <NavLink to="/search-page">Kiểm tra</NavLink>
             </li>
