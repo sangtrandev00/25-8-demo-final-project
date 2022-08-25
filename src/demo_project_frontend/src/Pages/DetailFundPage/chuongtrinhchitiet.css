@@ -1,0 +1,100 @@
+.detail-fund-page {
+  line-height: 1.6;
+}
+
+.detail-fund__container {
+
+}
+
+.detail-fund__id {
+
+}
+
+.detail-fund__wrapper-body {
+  display: flex;
+
+}
+
+
+.detail-fund__name {
+
+}
+
+.detail-fund__type-project {
+
+}
+
+
+.detail-fund__body {
+  width: 70%;
+  padding-right: 60px;
+  text-align: justify;
+}
+
+.detail-fund__body-short-desc {
+
+}
+
+.detail-fund__body-full {
+
+}
+
+.detail-fund__body-full-detail {
+
+}
+
+.detail-fund__body-full-heading {
+
+}
+
+.detail-fund__body-full-img {
+
+  margin: 20px 0px;
+}
+
+.detail-fund__body-full-img > img {
+  width: 100%;
+  
+}
+
+.detail-fund__body-full-detail-text-wrapper {
+
+}
+
+.detail-fund__body-full-detail-text {
+  
+}
+
+
+.detail-fund__sidebar {
+  width: 30%;
+}
+
+.detail-fund__sidebar span {
+  margin-right: 8px;
+}
+
+.detail-fund__sidebar .event_left span.day-left {
+  color: red;
+  font-size: 20px;
+}
+
+.detail-fund__img-desc {
+  font-style: italic;
+}
+
+.fund-detail-page__donate-btn {
+
+}
+
+.fund-detail-page__donate-btn.completed {
+  padding: 8px 16px;
+}
+
+.detail-fund__body-full-detail-donor-list{
+  margin-top: 30px;
+}
+
+.progress-bar.completed {
+  background-color: rgb(242, 111, 33);
+}
