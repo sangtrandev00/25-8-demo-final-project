@@ -22,7 +22,7 @@ function FundItemGroup(props) {
                     <FundProjectItem
                       key={fundItem.ProjectID}
                       ProjectID={fundItem.ProjectID}
-                      Avatar={fundItem.Avatar}
+                      Avatar={fundItem.ImgUrl}
                       ProjectName={fundItem.ProjectName}
                       ProjectType={fundItem.ProjectType}
                       DateStart={fundItem.DateStart}

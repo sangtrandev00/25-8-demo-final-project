@@ -20,7 +20,7 @@ function DisbursementItem(props) {
     DateConfirm,
     Reason,
   } = props;
-
+  console.log('DisbursementID', DisbursementID.toString());
   const [Disbursement, setDisbursement] = useState({});
   const [currentProjectID, setCurrentProjectID] = new useState();
 
@@ -97,7 +97,7 @@ function DisbursementItem(props) {
                 <div class="col l-7 c-7">
                   <p className="detail-disbursement__history-item">
                     {/* disbursementID */}
-                    Mã: {DisbursementID}
+                    Mã: {DisbursementID.toString()}
                   </p>
                   <p className="detail-disbursement__history-item">Đã thành công</p>
                   <p className="detail-disbursement__history-item">

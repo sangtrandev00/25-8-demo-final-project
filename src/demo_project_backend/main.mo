@@ -146,7 +146,7 @@ actor {
   //   }
   // };
 
-  //debug function --> Read all Fund Donate
+  //debug function --> Reaqd all Fund Donate
   public query func view_all_entries() : async [(Text, ?FundDonation)] {
     return Iter.toArray(FundDonationMaps.entries());
   };
@@ -229,6 +229,12 @@ actor {
   public query func sizeOfFundDonationMaps(): async Nat {
     return FundDonationMaps.size();
   };
+  public query func sizeOfFundProjectMaps(): async Nat {
+    return  FundProjectMaps.size();
+  };
+  public query func sizeOfDisbursementMaps(): async Nat {
+    return DisbursementMaps.size();
+  };
 
   // Read account
 
@@ -242,6 +248,9 @@ actor {
 
   public query func readValueDisbursementInfos() : async [?Disbursement] {
     return Iter.toArray(DisbursementMaps.vals());
+  };
+  public query func readValueProjectsInfos() : async [?FundProject] {
+    return Iter.toArray(FundProjectMaps.vals());
   };
 
   // stable var customerSize : Nat = customers.size();

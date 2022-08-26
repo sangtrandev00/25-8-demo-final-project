@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { calculateDaysLeft } from '../../utils/Common';
 import { demo_project_backend } from '../../../../declarations/demo_project_backend';
 import './FundProjectItem.css';
+import { demo_project_frontend } from '../../../../declarations/demo_project_frontend/index';
 FundProjectItem.propTypes = {};
 
 // Hàm tính tổng currentmoney hiện tại
@@ -19,7 +20,6 @@ function sumMoney(TargetProjectID, donateList) {
 
 function FundProjectItem(props) {
   const [currentMoneyDonate, setCurrentMoneyDonate] = useState(0);
-
   const {
     ProjectID,
     Avatar,
@@ -42,31 +42,40 @@ function FundProjectItem(props) {
     cursor: progressPercent >= 100 && 'not-allowed',
   };
 
-  const LinkToDonationPhpPage = `https://fpolytuthien.xyz/pages/donate.php?id=${ProjectID}`;
+  const LinkToDonationPhpPage = `https://fpolytuthien.com/pages/donate.php?id=${ProjectID}`;
 
   const dayLeft = calculateDaysLeft(DateEnd);
   // console.log(imgUrl);
-  useEffect(() => {
-    // Create Project in canister
+  // useEffect(() => {
+  //   // Create Project in canister
 
-    const createProjectItem = async () => {
-      console.log('Tạo dự án lần 1');
-      await demo_project_backend.createFundProject(
-        ProjectID,
-        ProjectName,
-        // ProjectType,
-        DateStart,
-        DateEnd,
-        Number(TargetMoney),
-        // Avatar,
-        0
-        // 'Some where', // Location from API
-        // ShortDesc,
-        // FullDesc
-      );
-    };
-    createProjectItem();
-  }, []);
+  //   // Call from canister
+
+  //   // const getDetailFundProject = async () => {
+  //   //     // const Backend_Detail_Project = await demo_project_frontend.view_fund_project()
+  //   // }
+
+  //   getDetailFundProject();
+
+  //   const createProjectItem = async () => {
+  //     console.log('Tạo dự án lần 1');
+  //     // Query lên giao diện !!!
+  //     await demo_project_backend.createFundProject(
+  //       ProjectID,
+  //       ProjectName,
+  //       // ProjectType,
+  //       DateStart,
+  //       DateEnd,
+  //       Number(TargetMoney),
+  //       // Avatar,
+  //       0
+  //       // 'Some where', // Location from API
+  //       // ShortDesc,
+  //       // FullDesc
+  //     );
+  //   };
+  //   createProjectItem();
+  // }, []);
 
   useEffect(() => {
     const getCurrentMoney = async () => {
@@ -106,7 +115,7 @@ function FundProjectItem(props) {
   return (
     <div class="col-md-4 col-xs-12 fund-item-wrap">
       <div class="item">
-        <img src={Avatar} alt="" />
+        <img src={Avatar} alt="error-img" />
         <div class="for_padding">
           <Link to={LinkUrlToDetailFundPage} class="name_event">
             Kỳ {ProjectID} : {ProjectName}

@@ -20,54 +20,43 @@ import { demo_project_backend } from '../../../../declarations/demo_project_back
 HomePage.propTypes = {};
 
 function HomePage(props) {
-  // get data from here!!!
-
-  // Sample data:
-  // const homeLessFundList = homeLessFundProjects;
-  // const poorFundList = poorFundProjects;
-  // const educationFundList = educationFundProjects;
-
   const [projects, setProjects] = useState({
     covid_project_list: [],
-    living_project_list: [],
-    cheapfood_project_list: [],
+    education_project_list: [],
+    homeless_project_list: [],
     poor_project_list: [],
   });
-
-  const [newProjects, setNewProjects] = useState({
-    covid_project_list: [],
-    living_project_list: [],
-    cheapfood_project_list: [],
-    poor_project_list: [],
-  });
-
-  // console.log(projects);
 
   useEffect(() => {
     const fetchProjects = async () => {
-      // const params = {
-      //   _limit: 3,
-      // }
+      const listProjects = await demo_project_backend.readValueProjectsInfos();
+      const newListProjects = listProjects.map((project) => project[0]);
+      // console.log(newListProjects);
+      let Covid_Project_List = newListProjects.filter((project) =>
+        project.ProjectType.includes('CÁC DỰ ÁN HỖ TRỢ Y TẾ VÀ DỊCH COVID')
+      );
 
-      const cateProjects = await cateProjectApi.getAll();
-      console.log(cateProjects);
-      const covid_project_list = cateProjects.category_1.filter((cate, index) => index < 3);
-      const living_project_list = cateProjects.category_2.filter((cate, index) => index < 3);
-      const cheapfood_project_list = cateProjects.category_3.filter((cate, index) => index < 3);
-      const poor_project_list = cateProjects.category_4.filter((cate, index) => index < 3);
+      // Covid_Project_List = Covid_Project_List.filter((project)=> )
+      // console.log('Covid_Project_List', Covid_Project_List);
+      let Education_Project_List = newListProjects.filter((project) =>
+        project.ProjectType.includes('CÁC DỰ ÁN HỖ TRỢ GIÁO DỤC')
+      );
+      // console.log('Education_Project_List', Education_Project_List);
+      let Homeless_Project_List = newListProjects.filter((project) =>
+        project.ProjectType.includes('CÁC DỰ ÁN HỖ TRỢ NGƯỜI VÔ GIA CƯ')
+      );
+      // console.log('Homeless_Project_List', Education_Project_List);
+      let Poor_Project_List = newListProjects.filter((project) =>
+        project.ProjectType.includes('CÁC DỰ ÁN HỖ TRỢ NGƯỜI NGHÈO')
+      );
 
-      // console.log(
-      //   covid_project_list,
-      //   living_project_list,
-      //   cheapfood_project_list,
-      //   poor_project_list
-      // );
+      // console.log('Homeless_Project_List', Homeless_Project_List);
 
       setProjects({
-        covid_project_list: covid_project_list,
-        living_project_list: living_project_list,
-        cheapfood_project_list: cheapfood_project_list,
-        poor_project_list: poor_project_list,
+        covid_project_list: Covid_Project_List,
+        education_project_list: Education_Project_List,
+        homeless_project_list: Homeless_Project_List,
+        poor_project_list: Poor_Project_List,
       });
     };
 
@@ -106,16 +95,16 @@ function HomePage(props) {
       <Banner />
       <ImportantDonation />
       <FundItemGroup
-        nameFundGroup="CÁC DỰ ÁN HỖ TRỢ Y TẾ VACCINE COVID 19"
+        nameFundGroup="CÁC DỰ ÁN HỖ TRỢ Y TẾ VÀ DỊCH COVID"
         fundProjectList={projects.covid_project_list}
       />
       <FundItemGroup
-        nameFundGroup="CÁC DỰ ÁN HỖ TRỢ PHƯƠNG TIỆN MƯU SINH"
-        fundProjectList={projects.living_project_list}
+        nameFundGroup="CÁC DỰ ÁN HỖ TRỢ GIÁO DỤC"
+        fundProjectList={projects.education_project_list}
       />
       <FundItemGroup
-        nameFundGroup="CÁC DỰ ÁN HỖ TRỢ XUẤT ĂN GIÁ RẺ"
-        fundProjectList={projects.cheapfood_project_list}
+        nameFundGroup="CÁC DỰ ÁN HỖ TRỢ NGƯỜI VÔ GIA CƯ"
+        fundProjectList={projects.homeless_project_list}
       />
       <FundItemGroup
         nameFundGroup="CÁC DỰ ÁN HỖ TRỢ NGƯỜI NGHÈO"

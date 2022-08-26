@@ -185,10 +185,12 @@ function SearchPage(props) {
                         value={searchTerm.projectTypeName}
                       >
                         <option value="tất cả">Tất cả</option>
-                        <option value="Hỗ trợ người nghèo">Hỗ trợ người nghèo</option>
-                        <option value="Hỗ trợ vô gia cư">Hỗ trợ người vô gia cư</option>
-                        <option value="Hỗ trợ giáo dục">Hỗ trợ giáo dục</option>
-                        <option value="Hỗ trợ covid 19">Hỗ trợ quỹ covid 19</option>
+                        <option value="HỖ TRỢ NGƯỜI NGHÈO">Hỗ trợ người nghèo</option>
+                        <option value="HỖ TRỢ NGƯỜI VÔ GIA CƯ">Hỗ trợ người vô gia cư</option>
+                        <option value="HỖ TRỢ GIÁO DỤC">Hỗ trợ giáo dục</option>
+                        <option value="HỖ TRỢ Y TẾ VÀ DỊCH COVID">
+                          Hỗ trợ y tế và dịch covid 19
+                        </option>
                         <option value="Hỗ trợ khác">Hỗ trợ khác</option>
                       </select>
                       {/* <!-- <input type="text" name="" id="" class="search-item__input" placeholder=""> --> */}
@@ -288,55 +290,6 @@ function SearchPage(props) {
                       TypeProject={donation.TypeProject}
                     />
                   ))}
-
-                  <tr class="multi-table__row">
-                    <td class="multi-table__cell multi-table__cell-body ">QBS-0000037293</td>
-                    <td class="multi-table__cell multi-table__cell-body">2022-08-05</td>
-                    <td class="multi-table__cell multi-table__cell-body">200,000</td>
-                    <td class="multi-table__cell multi-table__cell-body">NHT HOÀNG VIỆT</td>
-                    <td class="multi-table__cell multi-table__cell-body">
-                      <div class="multi-table__cell-desc">
-                        Quán Yên Vui Vinh - Nghệ An(Quán cơm từ thiện)
-                      </div>
-                      <button
-                        class="multi-table__cell-btn "
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseRow"
-                        aria-expanded="false"
-                        aria-controls="collapseRow"
-                      >
-                        <i class="multi-table__cell-icon fa-solid fa-chevron-down"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="multi-table__row">
-                    <td class="multi-table__cell">QBS-0000037293</td>
-                    <td class="multi-table__cell">2022-08-05</td>
-                    <td class="multi-table__cell">200,000</td>
-                    <td class="multi-table__cell">NHT HOÀNG VIỆT</td>
-                    <td class="multi-table__cell">
-                      <div class="multi-table__cell-desc">
-                        Quán Yên Vui Vinh - Nghệ An(Quán cơm từ thiện)
-                      </div>
-                      <button class="multi-table__cell-btn">
-                        <i class="multi-table__cell-icon fa-solid fa-chevron-down"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="multi-table__row">
-                    <td class="multi-table__cell">QBS-0000037293</td>
-                    <td class="multi-table__cell">2022-08-05</td>
-                    <td class="multi-table__cell">200,000</td>
-                    <td class="multi-table__cell">NHT HOÀNG VIỆT</td>
-                    <td class="multi-table__cell">
-                      <div class="multi-table__cell-desc">
-                        Quán Yên Vui Vinh - Nghệ An(Quán cơm từ thiện)
-                      </div>
-                      <button class="multi-table__cell-btn">
-                        <i class="multi-table__cell-icon fa-solid fa-chevron-down"></i>
-                      </button>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>

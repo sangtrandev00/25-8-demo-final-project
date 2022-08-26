@@ -5,6 +5,7 @@ import cateProjectApi from '../../../../api/cateProjectApi';
 import Header from '../../../../components/Header/index';
 import Footer from '../../../../components/Footer/index';
 import FundItemGroup from '../../../../components/FundItemGroup/index';
+import { demo_project_backend } from '../../../../../../declarations/demo_project_backend/index';
 
 PoorProjectPage.propTypes = {};
 
@@ -18,22 +19,29 @@ function PoorProjectPage(props) {
     poor_project_list: [],
   });
 
-  // const [projectList, setProjectList] = useState([]);
-
   useEffect(() => {
     const fetchProjects = async () => {
-      const cateProjects = await cateProjectApi.getAll();
-      console.log(cateProjects);
-      const covid_project_list = cateProjects.category_1;
-      const living_project_list = cateProjects.category_2;
-      const cheapfood_project_list = cateProjects.category_3;
-      const poor_project_list = cateProjects.category_4;
+      const listProjects = await demo_project_backend.readValueProjectsInfos();
+      const newListProjects = listProjects.map((project) => project[0]);
+      console.log(newListProjects);
+      const Covid_Project_List = newListProjects.filter(
+        (project) => (project.ProjectType = 'CÁC DỰ ÁN HỖ TRỢ Y TẾ VÀ DỊCH COVID')
+      );
+      const Education_Project_List = newListProjects.filter(
+        (project) => (project.ProjectType = 'CÁC DỰ ÁN HỖ TRỢ GIÁO DỤC')
+      );
+      const Homeless_Project_List = newListProjects.filter(
+        (project) => (project.ProjectType = 'CÁC DỰ ÁN HỖ TRỢ NGƯỜI VÔ GIA CƯ')
+      );
+      const Poor_Project_List = newListProjects.filter(
+        (project) => (project.ProjectType = 'CÁC DỰ ÁN HỖ TRỢ NGƯỜI NGHÈO')
+      );
 
       setProjects({
-        covid_project_list: covid_project_list,
-        living_project_list: living_project_list,
-        cheapfood_project_list: cheapfood_project_list,
-        poor_project_list: poor_project_list,
+        covid_project_list: Covid_Project_List,
+        living_project_list: Education_Project_List,
+        cheapfood_project_list: Homeless_Project_List,
+        poor_project_list: Poor_Project_List,
       });
     };
 

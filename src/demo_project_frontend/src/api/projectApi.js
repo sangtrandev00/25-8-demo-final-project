@@ -4,7 +4,7 @@ import axiosClient from './axiosClient';
 const projectApi = {
   //
   getAll(params) {
-    const url = '/project/read_id.php';
+    const url = '/project/read_all.php';
     return axiosClient.get(url, {
       params: params,
     });

@@ -21,6 +21,9 @@ DetailFundPage.propTypes = {};
 // }
 
 function DetailFundPage(props) {
+  const [fullDescHtml, setFullDesc] = useState('');
+
+  // Full description
   const [fundProject, setFundProject] = useState({});
   const [donateFundList, setDonateList] = useState([]);
 
@@ -34,7 +37,7 @@ function DetailFundPage(props) {
   const ProjectParams = useLocation();
 
   const idFundProject = ProjectParams.search.substring(6);
-
+  const LinkToDonationPhpPage = `https://fpolytuthien.com/pages/donate.php?id=${idFundProject}`;
   // const progressPercent = (currentMoneyDonate / fundProject.TargetMoney) * 100;
 
   const completeBtnStyle = {
@@ -56,7 +59,9 @@ function DetailFundPage(props) {
 
       console.log(fundProjectObject[0]);
       setFundProject(newFundProject);
-
+      console.log(newFundProject.FullDesc);
+      document.querySelector('.detail-fund__body-full-detail-text').innerHTML =
+        newFundProject.FullDesc;
       const donateListEntries = await demo_project_backend.readDonateInfo();
       let donateList = donateListEntries.map((donateList) => donateList[0]);
       // Lọc ra nhưng donate rỗng
@@ -129,6 +134,11 @@ function DetailFundPage(props) {
   //   getCurrentMoney();
   // }, []);
   // console.log('donateList', donateList);
+
+  // Full Description backend
+  console.log(document.querySelector('.detail-fund__body-full-detail-text'));
+  // document.querySelector('.detail-fund__body-full-detail-text').innerHTML = fullDescHtml;
+
   return (
     <div className="detail-fund-page">
       <HeaderContact />
@@ -151,7 +161,14 @@ function DetailFundPage(props) {
               <div class="detail-fund__body-full-detail">
                 <div className="detail-fund__body-full-detail-text-wrapper">
                   <h3 className="detail-fund__body-full-detail-heading">Chi tiết thông tin:</h3>
-                  <div className="detail-fund__body-full-detail-text">{fundProject.FullDesc}</div>
+                  <div
+                    className="detail-fund__body-full-detail-text"
+                    onChange={(e) => {
+                      console.log('e.target', e.target);
+                    }}
+                  >
+                    {fundProject.FullDesc}
+                  </div>
                 </div>
 
                 <div class="detail-fund__body-full-detail-donor-list">
@@ -227,7 +244,7 @@ function DetailFundPage(props) {
                     progressPercent >= 100 && e.preventDefault();
                   }}
                   style={completeBtnStyle}
-                  href={progressPercent >= 100 ? '/fund-detail-page' : 'donggop.html'}
+                  href={progressPercent >= 100 ? '/fund-detail-page' : LinkToDonationPhpPage}
                 >
                   {(daysLeft < 0 && 'Đã Quá Hạn') ||
                     (progressPercent > 100 ? 'ĐÃ ĐÓNG GÓP' : 'ĐÓNG GÓP NGAY')}

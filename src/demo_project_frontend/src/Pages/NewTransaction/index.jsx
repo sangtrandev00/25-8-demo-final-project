@@ -6,9 +6,9 @@ import fundDonateApi from '../../api/fundDonateApi';
 import { demo_project_backend } from '../../../../declarations/demo_project_backend/index';
 import disbursementApi from '../../api/disbursementApi';
 
-NewDonationPage.propTypes = {};
+NewTransaction.propTypes = {};
 
-function NewDonationPage(props) {
+function NewTransaction(props) {
   let { id } = useParams();
   console.log('id:', id);
 
@@ -17,7 +17,7 @@ function NewDonationPage(props) {
   // const idDonation = DonationUrlParams.search.substring(6);
 
   useEffect(() => {
-    const getNewDonation = async () => {
+    const getNewTransaction = async () => {
       const myArray = id.split('_');
       const Name_ = myArray[0];
       console.log(Name_);
@@ -83,17 +83,17 @@ function NewDonationPage(props) {
       }
     };
 
-    getNewDonation();
+    getNewTransaction();
   }, []);
 
   return (
     <div>
       <h3>
         {/* {idDonation} */}
-        ID Donation: {id} --
+        ID Donation: {id}
       </h3>
     </div>
   );
 }
 
-export default NewDonationPage;
+export default NewTransaction;

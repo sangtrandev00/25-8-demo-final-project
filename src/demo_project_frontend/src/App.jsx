@@ -33,13 +33,14 @@ import DetailFundPage from './Pages/DetailFundPage';
 import DisbursementPage from './Pages/DisbursementPage';
 import { useEffect } from 'react';
 import projectApi from './api/projectApi';
-import NewDonationPage from './Pages/NewDonationPage/index';
+import NewDonationPage from './Pages/NewTransaction/index';
 import CovidProjectPage from './Pages/FundProgramsPage/components/CovidProjectPage/index';
 import PoorProjectPage from './Pages/FundProgramsPage/components/PoorProjectPage/index';
 import HomeLessProjectPage from './Pages/FundProgramsPage/components/HomeLessProjectPage/index';
 import EducationProjectPage from './Pages/FundProgramsPage/components/EducationProjectPage/index';
 import NewProjectPage from './Pages/NewProjectPage/index';
 import NewDisbursementPage from './Pages/NewDisbursementPage/index';
+import NewTransaction from './Pages/NewTransaction/index';
 
 // import "./assets/css/style.css";
 // import "./assets/css/style.css";
@@ -81,9 +82,9 @@ function App() {
           <Route path="/introduction-page" component={IntroPage} />
           <Route path="/programs-fund-page" component={ProgramsfundPage} />
           <Route path="/covid-project-fund" component={CovidProjectPage} />
-          <Route path="/new-project-page" component={NewProjectPage} exact={false} />
-          <Route path="/new-donation-page" component={NewDonationPage} exact={false} />
-          <Route path="/new-disbursement-page" component={NewDisbursementPage} exact={false} />
+          <Route path="/new-transtraction-page" component={NewTransaction} exact={false} />
+          {/* <Route path="/new-project-page" component={NewProjectPage} exact={false} />
+          <Route path="/new-disbursement-page" component={NewDisbursementPage} exact={false} /> */}
           <Route path="/education-project-fund" component={EducationProjectPage} />
           <Route path="/homeless-project-fund" component={HomeLessProjectPage} />
           <Route path="/poor-project-fund" component={PoorProjectPage} />

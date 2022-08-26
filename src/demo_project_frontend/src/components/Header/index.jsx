@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Logo_1 from '../../../assets/img/logo-1.png';
 import { Link, NavLink, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NewDonationPage from '../../Pages/NewDonationPage/index';
+// import NewDonationPage from '../../Pages/NewTransaction/index';
 import NewProjectPage from '../../Pages/NewProjectPage/index';
 import NewDisbursementPage from '../../Pages/NewDisbursementPage/index';
+import NewTransaction from '../../Pages/NewTransaction/index';
 
 Header.propTypes = {};
 
@@ -68,7 +69,7 @@ function Header(props) {
               </li>
               <Switch>
                 {/* <Route path="/:id" children={<NewProjectPage />} exact={false} /> */}
-                <Route path="/:id" children={<NewDonationPage />} exact={false} />
+                <Route path="/:id" children={<NewTransaction />} exact={false} />
                 {/* <Route
                   path="/new-disbursement-page/:id"
                   children={<NewDisbursementPage />}
